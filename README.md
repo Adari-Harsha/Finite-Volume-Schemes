@@ -15,24 +15,24 @@ This repository provides implementations of several common numerical schemes for
 
 ## Code Description
 
-Each scheme is implemented in a separate Python file (e.g., `upwind_scheme.py`, `lax_friedrich_scheme.py`). The code uses the following libraries:
+Each scheme is implemented in a separate Python file ( `Upwind Scheme.py`, `Lax Friedrich_scheme.py` , `Downwind Scheme.py`, `Näive Scheme.py`). The code uses the following libraries:
 
-*   `numpy`: For numerical computations [1-4].
-*   `matplotlib`: For plotting and animation [1-4].
-*   `matplotlib.animation`: For creating animations [1-4].
+*   `numpy`: For numerical computations.
+*   `matplotlib`: For plotting and animation.
+*   `matplotlib.animation`: For creating animations.
 
 ### Common Parameters
 
 The following parameters are used in all the schemes:
 
-*   `L`: Length of the spatial domain, which is `[-L, L]` [1-4].
-*   `T`: Final time [1-4].
-*   `c`: Advection speed [2, 4].
-*   `h`: Spatial step size [1-4].
-*   `dt`: Time step size [1-4].
-*   `gam`: Grid ratio, defined as `dt / h` [1-4].
-*   `n`: Number of spatial grid points [1-4].
-*   `m`: Number of time steps [1-4].
+*   `L`: Length of the spatial domain, which is `[-L, L]`.
+*   `T`: Final time.
+*   `c`: Advection speed.
+*   `h`: Spatial step size.
+*   `dt`: Time step size.
+*   `gam`: Grid ratio, defined as `dt / h`.
+*   `n`: Number of spatial grid points.
+*   `m`: Number of time steps.
 
 ### Initial Condition
 
@@ -47,13 +47,15 @@ The core of each scheme is the update rule applied at each time step. For exampl
 u[1:-1] = (u[2:] + u[:-2]) / 2 - c * gam * (u[2:] - u[:-2]) / 2
 u = (u[4] + u[-1]) / 2 - c * gam * (u[4] - u[-1]) / 2
 u[-1] = (u[-1] + u[-2]) / 2 - c * gam * (u - u[-2]) / 2
+
+
+```
 The update rules for the other schemes can be found in their respective files.
 Animation
 Each scheme generates an animation of the solution over time using matplotlib.animation.FuncAnimation.  The animation displays the solution u(x) at different time steps.
-Usage
-To run a specific scheme, simply execute the corresponding Python file:
-python upwind_scheme.py
-This will generate an animation of the solution.  Ensure you have the required libraries installed (numpy and matplotlib).
+
+
+
 Notes
 •
 The choice of h and dt can significantly affect the stability and accuracy of the numerical solution.
